@@ -10,8 +10,10 @@ namespace T2010A_WAD.Models
     {
         [Key]
         public int Id { get; set; }
-        public string CategoryName { get; set;
-        }
+        [Required(ErrorMessage = "Vui lòng nhập tên danh mục")]
+        public string CategoryName { get; set;}
+        [Required(ErrorMessage ="Vui lòng nhập ảnh danh mục")]
         public string CategoryImage { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

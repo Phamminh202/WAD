@@ -2,64 +2,58 @@
 @{
     ViewBag.Title = "Create New Brand";
 }
-
+@model T2010A_WAD.Models.Brand
 <div class="content-wrapper">
     <div class="left">
         <h1>Create New Brand</h1>
     </div>
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">General</h3>
-
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
+        @using (Html.BeginForm("CreateNew", "Brand", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken() // cho 1 token vao form
+            @Html.ValidationSummary(true)// xac dinh se validate form data
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Create</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                @Html.LabelFor(Model => Model.BrandName)
+                                @Html.EditorFor(Model => Model.BrandName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter brand name" } })
+                                @Html.ValidationMessageFor(Model => Model.BrandName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(Model => Model.BrandImage)
+                                @Html.EditorFor(Model => Model.BrandImage, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter brand image" } })
+                                @Html.ValidationMessageFor(Model => Model.BrandImage, "", new { @class = "text-danger" })                                
+                            </div>                            
+                            <div class="form-group">
+                                @Html.LabelFor(Model => Model.About)
+                                @Html.EditorFor(Model => Model.About, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter about" } })
+                                @Html.ValidationMessageFor(Model => Model.About, "", new { @class = "text-danger" })
+                            </div>                            
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="inputName">Project Name</label>
-                            <input type="text" id="inputName" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputDescription">Project Description</label>
-                            <textarea id="inputDescription" class="form-control" rows="4"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputStatus">Status</label>
-                            <select id="inputStatus" class="form-control custom-select">
-                                <option selected disabled>Select one</option>
-                                <option>On Hold</option>
-                                <option>Canceled</option>
-                                <option>Success</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputClientCompany">Client Company</label>
-                            <input type="text" id="inputClientCompany" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputProjectLeader">Project Leader</label>
-                            <input type="text" id="inputProjectLeader" class="form-control">
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
-            </div>
 
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
-                <input type="submit" value="Create new Porject" class="btn btn-success float-right">
             </div>
-        </div>
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" class="btn btn-secondary">Cancel</a>
+                    <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+                </div>
+            </div>
+        }
     </section>
     <!-- /.content -->
 </div>

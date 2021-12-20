@@ -35,7 +35,9 @@ namespace ContactsWeb
                      "~/Content/dist/css/adminlte.min.css",
                      "~/Content/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
                      "~/Content/plugins/daterangepicker/daterangepicker.css",
-                     "~/Content/plugins/summernote/summernote-bs4.min.css"
+                     "~/Content/plugins/summernote/summernote-bs4.min.css",
+                     
+                     "~/Content/vendor/datatables/dataTables.bootstrap4.min.css"
                 ));
             bundles.Add(new ScriptBundle("~/AdminLTE/js").Include(
                   "~/Content/plugins/jquery/jquery.min.js",
@@ -53,8 +55,16 @@ namespace ContactsWeb
                          "~/Content/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
                          "~/Content/dist/js/adminlte.js",
                          "~/Content/dist/js/demo.js",
-                         "~/Content/plugins/datatables/datatables-demo.js",
-                         "~/Content/dist/js/pages/dashboard.js"));
+                         "~/Content/dist/js/pages/dashboard.js",
+
+                         "~/Content/vendor/jquery/jquery.min.js",
+                         "~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js",
+                         "~/Content/vendor/jquery-easing/jquery.easing.min.js",
+                         "~/Content/js/sb-admin-2.min.js",
+                         "~/Content/vendor/datatables/jquery.dataTables.min.js",
+                         "~/Content/vendor/datatables/dataTables.bootstrap4.min.js",
+                         "~/Content/js/demo/datatables-demo.js"
+                         ));
         }
     }
 }
